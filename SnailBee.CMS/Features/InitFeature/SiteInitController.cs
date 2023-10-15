@@ -7,21 +7,22 @@ using OrchardCore.Settings;
 using SnailBee.CMS.Features.SiteInit.Models;
 
 
-namespace SnailBee.CMS.Features.SiteInit;
+namespace SnailBee.CMS.Features.InitFeature;
 
 
-public class SiteStaticData : Controller
+[IgnoreAntiforgeryToken, AllowAnonymous]
+public class SiteInitController : Controller
 {
     private readonly ISiteService _siteService;
 
-    public SiteStaticData(ISiteService siteService)
+    public SiteInitController(ISiteService siteService)
     {
         _siteService = siteService;
     }
 
     [AllowAnonymous]
     [HttpGet("/api/static")]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> Init()
     {
         var siteSettings = await _siteService.GetSiteSettingsAsync();
         var settings = siteSettings.As<ContentItem>(nameof(SnailBeeSettings));

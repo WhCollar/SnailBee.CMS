@@ -2,7 +2,7 @@ using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;
 using OrchardCore.Media.Fields;
 
-namespace SnailBee.CMS.Features.Works.Models;
+namespace SnailBee.CMS.Features.SiteInit.Models;
 
 public class Work : ContentPart
 {

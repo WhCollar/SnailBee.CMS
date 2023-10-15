@@ -3,9 +3,10 @@ using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
 using OrchardCore.Media.Fields;
-using SnailBee.CMS.Features.Clients.Models;
+using OrchardCore.Title.Models;
+using SnailBee.CMS.Features.BriefFormFeature.Models;
+using SnailBee.CMS.Features.QuickFormFeature.Models;
 using SnailBee.CMS.Features.SiteInit.Models;
-using SnailBee.CMS.Features.Works.Models;
 
 namespace SnailBee.CMS.Features;
 
@@ -20,11 +21,29 @@ public class Migration : DataMigration
 
     public int Create()
     {
+        DeleteDefaultTypes();
         AddSnailBeeSettings();
         AddClient();
         AddWork();
+        AddQuickForm();
+        AddBriefForm();
         
         return 1;
+    }
+
+    private void DeleteDefaultTypes()
+    {
+        _contentDefinitionManager.DeletePartDefinition("ContentMenuItem");
+        _contentDefinitionManager.DeleteTypeDefinition("ContentMenuItem");
+        
+        _contentDefinitionManager.DeletePartDefinition("HtmlMenuItem");
+        _contentDefinitionManager.DeleteTypeDefinition("HtmlMenuItem");
+        
+        _contentDefinitionManager.DeletePartDefinition("LinkMenuItem");
+        _contentDefinitionManager.DeleteTypeDefinition("LinkMenuItem");
+        
+        _contentDefinitionManager.DeletePartDefinition("Menu");
+        _contentDefinitionManager.DeleteTypeDefinition("Menu");
     }
 
     private void AddSnailBeeSettings()
@@ -62,6 +81,7 @@ public class Migration : DataMigration
     {
         _contentDefinitionManager.AlterTypeDefinition(nameof(Client), type => type
             .WithPart(nameof(Client))
+            .WithPart(nameof(TitlePart))
             .Creatable()
         );
 
@@ -81,6 +101,7 @@ public class Migration : DataMigration
     {
         _contentDefinitionManager.AlterTypeDefinition(nameof(Work), type => type
             .WithPart(nameof(Work))
+            .WithPart(nameof(TitlePart))
             .Creatable()
         );
 
@@ -92,6 +113,66 @@ public class Migration : DataMigration
             .WithField(nameof(Work.Image), field => field
                 .OfType(nameof(MediaField))
                 .WithDisplayName(nameof(Work.Image))
+            )
+        );
+    }
+
+    private void AddQuickForm()
+    {
+        _contentDefinitionManager.AlterTypeDefinition(nameof(QuickForm), type => type
+            .WithPart(nameof(QuickForm))
+            .WithPart(nameof(TitlePart))
+            .Creatable()
+        );
+
+        _contentDefinitionManager.AlterPartDefinition(nameof(QuickForm), part => part
+            .WithField(nameof(QuickForm.Name), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(QuickForm.Name))
+            )
+            .WithField(nameof(QuickForm.Phone), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(QuickForm.Phone))
+            )
+        );
+    }
+
+    private void AddBriefForm()
+    {
+        _contentDefinitionManager.AlterTypeDefinition(nameof(BriefForm), type => type
+            .WithPart(nameof(BriefForm))
+            .WithPart(nameof(TitlePart))
+            .Creatable()
+        );
+
+        _contentDefinitionManager.AlterPartDefinition(nameof(BriefForm), part => part
+            .WithField(nameof(BriefForm.Name), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(BriefForm.Name))
+            )
+            .WithField(nameof(BriefForm.Phone), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(BriefForm.Phone))
+            )
+            .WithField(nameof(BriefForm.Email), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(BriefForm.Email))
+            )
+            .WithField(nameof(BriefForm.About), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(BriefForm.About))
+            )
+            .WithField(nameof(BriefForm.Case), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(BriefForm.Case))
+            )
+            .WithField(nameof(BriefForm.Budget), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(BriefForm.Budget))
+            )
+            .WithField(nameof(BriefForm.Commentary), field => field
+                .OfType(nameof(TextField))
+                .WithDisplayName(nameof(BriefForm.Commentary))
             )
         );
     }

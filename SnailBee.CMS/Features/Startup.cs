@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.ContentManagement;
 using OrchardCore.Data.Migration;
 using OrchardCore.Modules;
-using SnailBee.CMS.Features.Clients.Models;
+using SnailBee.CMS.Features.BriefFormFeature.Models;
+using SnailBee.CMS.Features.QuickFormFeature.Models;
 using SnailBee.CMS.Features.SiteInit.Models;
-using SnailBee.CMS.Features.Works.Models;
 using StartupBase = Microsoft.AspNetCore.Hosting.StartupBase;
 
 namespace SnailBee.CMS.Features;
@@ -20,6 +22,8 @@ public class Startup : StartupBase
         services.AddContentPart<SnailBeeSettings>();
         services.AddContentPart<Client>();
         services.AddContentPart<Work>();
+        services.AddContentPart<QuickForm>();
+        services.AddContentPart<BriefForm>();
         services.AddScoped<IDataMigration, Migration>();
     }
 }
