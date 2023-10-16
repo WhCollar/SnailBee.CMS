@@ -8,6 +8,7 @@ using SnailBee.CMS.Features.QuickFormFeature.Models;
 
 namespace SnailBee.CMS.Features.QuickFormFeature;
 
+
 [IgnoreAntiforgeryToken, AllowAnonymous]
 public class QuickFormController : Controller
 {

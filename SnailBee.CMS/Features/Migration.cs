@@ -5,10 +5,12 @@ using OrchardCore.Data.Migration;
 using OrchardCore.Media.Fields;
 using OrchardCore.Title.Models;
 using SnailBee.CMS.Features.BriefFormFeature.Models;
+using SnailBee.CMS.Features.InitFeature.Models;
 using SnailBee.CMS.Features.QuickFormFeature.Models;
-using SnailBee.CMS.Features.SiteInit.Models;
+
 
 namespace SnailBee.CMS.Features;
+
 
 public class Migration : DataMigration
 {
