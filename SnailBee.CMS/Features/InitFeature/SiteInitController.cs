@@ -6,7 +6,6 @@ using OrchardCore.Settings;
 using SnailBee.CMS.Domain;
 using SnailBee.CMS.Features.InitFeature.Responses;
 
-
 namespace SnailBee.CMS.Features.InitFeature;
 
 [IgnoreAntiforgeryToken, AllowAnonymous]

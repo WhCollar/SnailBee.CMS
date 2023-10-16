@@ -6,9 +6,7 @@ using OrchardCore.Media.Fields;
 using OrchardCore.Title.Models;
 using SnailBee.CMS.Domain;
 
-
 namespace SnailBee.CMS.Features;
-
 
 public class Migration : DataMigration
 {
@@ -27,7 +25,7 @@ public class Migration : DataMigration
         AddWork();
         AddQuickForm();
         AddBriefForm();
-        
+
         return 1;
     }
 
@@ -35,13 +33,13 @@ public class Migration : DataMigration
     {
         _contentDefinitionManager.DeletePartDefinition("ContentMenuItem");
         _contentDefinitionManager.DeleteTypeDefinition("ContentMenuItem");
-        
+
         _contentDefinitionManager.DeletePartDefinition("HtmlMenuItem");
         _contentDefinitionManager.DeleteTypeDefinition("HtmlMenuItem");
-        
+
         _contentDefinitionManager.DeletePartDefinition("LinkMenuItem");
         _contentDefinitionManager.DeleteTypeDefinition("LinkMenuItem");
-        
+
         _contentDefinitionManager.DeletePartDefinition("Menu");
         _contentDefinitionManager.DeleteTypeDefinition("Menu");
     }

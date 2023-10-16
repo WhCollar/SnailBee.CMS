@@ -5,9 +5,7 @@ using OrchardCore.Title.Models;
 using SnailBee.CMS.Domain;
 using SnailBee.CMS.Features.QuickFormFeature.Commands;
 
-
 namespace SnailBee.CMS.Features.QuickFormFeature;
-
 
 [IgnoreAntiforgeryToken, AllowAnonymous]
 public class QuickFormController : Controller
@@ -28,16 +26,16 @@ public class QuickFormController : Controller
         part.Name = new() { Text = quickForm.Name };
         part.Phone = new() { Text = quickForm.Phone };
         part.Apply();
-        
+
         await _contentManager.CreateAsync(contentItem, VersionOptions.Published);
 
         var titlePart = contentItem.As<TitlePart>();
         titlePart.Title = $"Id: {contentItem.Id} |";
         contentItem.DisplayText = titlePart.Title;
         titlePart.Apply();
-        
+
         await _contentManager.UpdateAsync(contentItem);
-        
+
         return Ok();
     }
 }

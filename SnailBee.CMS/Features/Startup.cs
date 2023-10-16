@@ -4,9 +4,7 @@ using OrchardCore.Modules;
 using SnailBee.CMS.Domain;
 using StartupBase = Microsoft.AspNetCore.Hosting.StartupBase;
 
-
 namespace SnailBee.CMS.Features;
-
 
 [Feature("OrchardCore.ContentTypes")]
 public class Startup : StartupBase
