@@ -4,9 +4,7 @@ using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
 using OrchardCore.Media.Fields;
 using OrchardCore.Title.Models;
-using SnailBee.CMS.Features.BriefFormFeature.Models;
-using SnailBee.CMS.Features.InitFeature.Models;
-using SnailBee.CMS.Features.QuickFormFeature.Models;
+using SnailBee.CMS.Domain;
 
 
 namespace SnailBee.CMS.Features;

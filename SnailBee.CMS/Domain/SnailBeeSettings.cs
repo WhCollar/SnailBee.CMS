@@ -1,7 +1,7 @@
 using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;
 
-namespace SnailBee.CMS.Features.InitFeature.Models;
+namespace SnailBee.CMS.Domain;
 
 public class SnailBeeSettings : ContentPart
 {

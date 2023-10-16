@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.ContentManagement;
 using OrchardCore.Title.Models;
+using SnailBee.CMS.Domain;
 using SnailBee.CMS.Features.QuickFormFeature.Commands;
-using SnailBee.CMS.Features.QuickFormFeature.Models;
 
 
 namespace SnailBee.CMS.Features.QuickFormFeature;

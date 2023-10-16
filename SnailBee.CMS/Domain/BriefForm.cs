@@ -1,8 +1,7 @@
 using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;
 
-
-namespace SnailBee.CMS.Features.BriefFormFeature.Models;
+namespace SnailBee.CMS.Domain;
 
 
 public class BriefForm : ContentPart

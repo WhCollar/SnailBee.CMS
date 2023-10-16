@@ -1,9 +1,7 @@
 using OrchardCore.ContentManagement;
 using OrchardCore.Data.Migration;
 using OrchardCore.Modules;
-using SnailBee.CMS.Features.BriefFormFeature.Models;
-using SnailBee.CMS.Features.InitFeature.Models;
-using SnailBee.CMS.Features.QuickFormFeature.Models;
+using SnailBee.CMS.Domain;
 using StartupBase = Microsoft.AspNetCore.Hosting.StartupBase;
 
 

@@ -1,8 +1,7 @@
 using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;
 
-
-namespace SnailBee.CMS.Features.QuickFormFeature.Models;
+namespace SnailBee.CMS.Domain;
 
 
 public class QuickForm : ContentPart
