@@ -2,11 +2,11 @@ using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;
 using OrchardCore.Media.Fields;
 
-namespace SnailBee.CMS.Features.SiteInit.Models;
+namespace SnailBee.CMS.Domain;
 
-public class Client : ContentPart
+public class Work : ContentPart
 {
     public TextField Name { get; set; }
-    
-    public MediaField Logo { get; set; }
+
+    public MediaField Image { get; set; }
 }

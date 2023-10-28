@@ -2,12 +2,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.ContentManagement;
 using OrchardCore.Title.Models;
+using SnailBee.CMS.Domain;
 using SnailBee.CMS.Features.BriefFormFeature.Commands;
-using SnailBee.CMS.Features.BriefFormFeature.Models;
-
 
 namespace SnailBee.CMS.Features.BriefFormFeature;
-
 
 [IgnoreAntiforgeryToken, AllowAnonymous]
 public class BriefFormController : Controller
@@ -35,12 +33,12 @@ public class BriefFormController : Controller
         part.Apply();
 
         await _contentManager.CreateAsync(contentItem, VersionOptions.Published);
-        
+
         var titlePart = contentItem.As<TitlePart>();
         titlePart.Title = $"Id: {contentItem.Id} |";
         contentItem.DisplayText = titlePart.Title;
         titlePart.Apply();
-        
+
         return Ok();
     }
 }
