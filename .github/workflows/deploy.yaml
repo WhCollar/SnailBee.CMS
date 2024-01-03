@@ -30,7 +30,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ${{ github.event.repository.name }}
-            docker stop ${{ github.event.repository.name }} 2> /dev/null || true
-            docker build ./SnailBee.SMS/ -t ${{ github.event.repository.name }}
-            docker run --name ${{ github.event.repository.name }} -p 5374:80 ${{ github.event.repository.name }}
+            cd ${{ env.DOCKER_IMAGE_NAME }}
+            docker stop ${{ env.DOCKER_IMAGE_NAME }} 2> /dev/null || true
+            docker build ./${{ github.event.repository.name }}/ -t ${{ env.DOCKER_IMAGE_NAME }}
+            docker run --name ${{ env.DOCKER_IMAGE_NAME }} -p 5374:80 ${{ env.DOCKER_IMAGE_NAME }}
