@@ -33,4 +33,4 @@ jobs:
             docker stop ${{ vars.DOCKER_CONTAINER_NAME }} 2> /dev/null || true
             docker rm ${{ vars.DOCKER_CONTAINER_NAME }} 2> /dev/null || true
             docker build -t ${{ vars.DOCKER_IMAGE_NAME }} -f ./${{ github.event.repository.name }}/${{ github.event.repository.name }}/Dockerfile ./${{ github.event.repository.name }}/
-            docker run -d --name ${{ vars.DOCKER_CONTAINER_NAME }} -v ./${{ github.event.repository.name }}/${{ github.event.repository.name }}/wwwroot/:/app/wwwroot/ -v ./${{ github.event.repository.name }}/${{ github.event.repository.name }}/App_Data/:/app/App_Data/ -p 5374:80 ${{ vars.DOCKER_IMAGE_NAME }}
+            docker run -d --name ${{ vars.DOCKER_CONTAINER_NAME }} -v ./${{ github.event.repository.name }}/${{ github.event.repository.name }}/wwwroot/:/app/wwwroot/ -v ./${{ github.event.repository.name }}/${{ github.event.repository.name }}/App_Data/:/app/App_Data/ -p 5374:80 --restart=always ${{ vars.DOCKER_IMAGE_NAME }}
