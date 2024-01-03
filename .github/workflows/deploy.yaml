@@ -30,6 +30,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            cd root
             docker stop ${{ vars.DOCKER_IMAGE_NAME }} 2> /dev/null || true
-            docker build -f /root/${{ github.event.repository.name }}/${{ github.event.repository.name }}/Dockerfile -t ${{ vars.DOCKER_IMAGE_NAME }} /root/${{ github.event.repository.name }}/
-            docker run --name ${{ vars.DOCKER_IMAGE_NAME }} -v /root/${{ github.event.repository.name }}/${{ github.event.repository.name }}/wwwroot/:/app/wwwroot -p 5374:80 ${{ vars.DOCKER_IMAGE_NAME }}
+            docker build -f .\${{ github.event.repository.name }}\${{ github.event.repository.name }}\Dockerfile -t ${{ vars.DOCKER_IMAGE_NAME }} .\${{ github.event.repository.name }}\
+            docker run --name ${{ vars.DOCKER_IMAGE_NAME }} -v \root\${{ github.event.repository.name }}\${{ github.event.repository.name }}\wwwroot\:\app\wwwroot\ -p 5374:80 ${{ vars.DOCKER_IMAGE_NAME }}
